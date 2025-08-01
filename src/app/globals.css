@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
 @theme inline {
   --color-background: var(--background);
@@ -12,15 +8,32 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+
+
+
+/* Remove the old body and body::before styles and add this instead */
+
+.bg-blurry-container {
+  position: fixed; /* Fixes it to the viewport */
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  z-index: -1; /* Puts it behind everything */
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.bg-blurry-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  
+  background-image: url('https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg');
+  background-size: cover;
+  background-position: center;
+
+  /* The blur and dark overlay effect */
+  filter: blur(5px) brightness(0.6);
+  transform: scale(1.1); /* Prevents blurry edges from showing */
 }
