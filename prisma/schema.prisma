@@ -28,6 +28,6 @@ model Link {
   createdAt   DateTime @default(now())
 
   // This is the other side of the relationship
-  userId String
-  user   User   @relation(fields: [userId], references: [id])
+  userId String?                        //?makes it optional used to handle url shortening without signing in
+  user   User?   @relation(fields: [userId], references: [id])    // we just want to save original url and short code and redirect users who dont want to sign up
 }
