@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "SwiftLink", // You can update this
-  description: "A high-performance URL shortener.", // And this
+  title: "SwiftLink", 
+  description: "A high-performance URL shortener.", 
 };
 
 export default function RootLayout({
@@ -17,10 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {/* Add this div for the background */}
+        
         <div className="bg-blurry-container"></div>
         
-        {/* Your main content will now render on top of the background */}
+      
         <main>{children}</main>
       </body>
     </html>
