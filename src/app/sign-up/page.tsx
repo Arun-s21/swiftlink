@@ -46,7 +46,7 @@ const onSubmit = async(event:React.FormEvent<HTMLFormElement>) =>{
 return (
 
     <div className='flex flex-col items-center justify-center min-h-screen '>
-        <div className='text-4xl font-bold text-center text-slate-400'><h1>Sign up to start using SwiftLink</h1></div>
+        <div className='text-4xl font-bold text-center text-slate-400'><h1>Sign up to start using <span className='text-lime-400'>SwiftLink</span></h1></div>
         <div className ='w-full max-w-md p-8 space-y-8 bg-slate-800 rounded-lg shadow-lg border border-slate-700'>
         <form onSubmit={onSubmit}>
             <div>
