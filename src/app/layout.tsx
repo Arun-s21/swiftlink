@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: "SwiftLink", 
@@ -20,6 +20,7 @@ export default function RootLayout({
         
       
         <main>{children}</main>
+        <Analytics />
       </body>
     </html>
   );
