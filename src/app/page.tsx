@@ -50,7 +50,7 @@ export default function HomePage(){
         <h1 className='text-lime-400 text-4xl font-bold'>SwiftLink</h1>
         <div>
           {/* <Link href='/sign-in' className='text-slate-400 hover:text-lime-400 mr-4 transition-colors'>Sign In</Link> */}
-          <Link href='/sign-up' className='text-slate-400 hover:text-lime-400 mr-4 transition-colors'>Sign Up</Link>
+          <Link href='/sign-up' className=' font-bold text-slate-400 hover:text-lime-400 mr-4 transition-colors'>Sign Up</Link>
         </div>
       </nav>
 
