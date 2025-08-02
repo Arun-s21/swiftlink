@@ -29,9 +29,9 @@ export default function SignUpPage(){
 
      }
 
-     catch(_error){
+     catch{
         // console.error('Error logging in:', error);
-
+        alert('Login failed:An unexpected error occurred');
      }
      finally{
         setIsSubmitting(false);
