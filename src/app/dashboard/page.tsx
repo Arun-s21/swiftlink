@@ -86,7 +86,7 @@ export default function Dashboard(){
         </div>
       ) : (
         <div className="text-center py-16 bg-slate-800/50 border border-slate-700 rounded-lg backdrop-blur-sm">
-          <p className="text-lg text-gray-400">You haven't created any links yet.</p>
+          <p className="text-lg text-gray-400">You have not created any links yet.</p>
           <Link href="/" className="text-lime-400 hover:underline mt-4 inline-block font-semibold">
             Create your first one!
           </Link>

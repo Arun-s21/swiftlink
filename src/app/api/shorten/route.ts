@@ -59,8 +59,8 @@ export async function POST(request:NextRequest){
 
     }
 
-    catch(error){
-        console.error('Error shortening URL:', error);
+    catch(_error){
+        // console.error('Error shortening URL:', error);
     return Response.json(
       { success: false, message: 'Something went wrong' },
       { status: 500 }
