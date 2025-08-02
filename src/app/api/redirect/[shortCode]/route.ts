@@ -2,11 +2,12 @@ import { PrismaClient } from "@prisma/client";
 import { NextRequest, NextResponse } from 'next/server'; 
 const prisma = new PrismaClient();
 
-export async function GET(request:NextRequest, {params}:{params:{shortCode:string}}){
+export async function GET(request:NextRequest, context:{params:{shortCode:string}}){
 
     try{
 
-        const {shortCode} = await params;  // or const shortCode=params.shortCode params is an object which contains shortCode like params:{shortCode:asda123s}
+        const shortCode = context.params.shortCode;
+ // or const shortCode=context.shortCode params is an object which contains shortCode like context:{shortCode:asda123s}
         const link = await prisma.link.findUnique({
             where:{shortCode}
         });
