@@ -8,7 +8,7 @@ export async function GET(request:NextRequest, context:any){
 
     try{
 
-        const shortCode = context.params.shortCode;  //we named the folder[shortCode] so nextjs knows anything after /redirect is shortCode and creates a params object which stores this shortCode variable
+        const shortCode = await context.params.shortCode;  //we named the folder[shortCode] so nextjs knows anything after /redirect is shortCode and creates a params object which stores this shortCode variable
  // or const shortCode=context.shortCode params is an object which contains shortCode like context:{shortCode:asda123s}
         const link = await prisma.link.findUnique({
             where:{shortCode}
@@ -21,7 +21,7 @@ export async function GET(request:NextRequest, context:any){
         {status:404});
         }
 
-        prisma.link.update({
+        await prisma.link.update({
             where:{id:link.id},
             data:{clicks:{increment:1}}
         });

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import axios from 'axios';
 
+
 export default function HomePage(){
 
   const [originalUrl,setOriginalUrl] = useState('');
@@ -16,6 +17,7 @@ export default function HomePage(){
     event.preventDefault();
     setIsSubmitting(true);
     setShortCode('');
+    
 
     try{
       const response = await axios.post('/api/shorten',{
@@ -38,7 +40,7 @@ export default function HomePage(){
 
   }
 
-  const fullShortUrl = shortCode? `${window.location.origin}/${shortCode}` : '';
+  const fullShortUrl = shortCode? `${window.location.origin}/${shortCode}` : '';  //if shortCode exists then put fullShortURL equal to current window url + shortCode
 
   return(
 
@@ -68,7 +70,7 @@ export default function HomePage(){
         </form>
 
         {fullShortUrl &&(
-
+// {/* if fullShortURL exists then render the function that is on the right of it   */}
           <div className='mt-4 bg-slate-800 p-4 rounded-lg w-full '>
             <p className='text-gray-300'>Your shortened link is ready:</p>
             <Link className='text-lime-400 text-lg font-semibold hover:underline' href={fullShortUrl}>{fullShortUrl}</Link>
@@ -76,6 +78,8 @@ export default function HomePage(){
 
 
         ) }
+
+        
 
 
       </main>

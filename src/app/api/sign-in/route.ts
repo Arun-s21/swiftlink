@@ -31,12 +31,12 @@ export async function POST(request: Request) {
       );
     }
 
-    // --- The rest of the logic remains the same ---
+   
     const tokenPayload = {
       id: user.id,
       email: user.email,
     };
-
+// generating a cookie to check at everypoint so that unauthorised users cannot access dashboard 
     const secret = new TextEncoder().encode(process.env.JWT_SECRET!);
     const token = await new SignJWT(tokenPayload)
       .setProtectedHeader({ alg: 'HS256' })
@@ -47,7 +47,7 @@ export async function POST(request: Request) {
       { success: true, message: 'Login successful' },
       { status: 200 }
     );
-
+// setting cookies in the headers
     response.headers.set(
       'Set-Cookie',
       `token=${token}; HttpOnly; Path=/; Max-Age=86400`

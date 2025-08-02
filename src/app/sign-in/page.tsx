@@ -23,7 +23,7 @@ export default function SignUpPage(){
                 email,password
             });
 
-            alert('Log in successful \n Redirecting you to Dashboard...');
+            alert('Log in successful \nRedirecting you to the Dashboard...');
             router.replace('/dashboard');
 
 
