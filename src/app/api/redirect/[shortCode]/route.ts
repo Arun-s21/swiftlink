@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 const prisma = new PrismaClient();
 
 
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function GET(request:NextRequest, context:any){
 
     try{
