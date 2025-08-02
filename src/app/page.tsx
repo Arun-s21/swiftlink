@@ -1,13 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import axios from 'axios';
 
 export default function HomePage(){
 
-  const router = useRouter();
   const [originalUrl,setOriginalUrl] = useState('');
   const [shortCode,setShortCode] = useState('');
   const [isSubmitting,setIsSubmitting]=useState(false);
@@ -57,7 +55,7 @@ export default function HomePage(){
       <hr/>
 
       <main className='flex flex-col items-center justify-center text-center flex-grow'>
-        <h2 className='text-5xl font-extrabold mb-4'>The only <span className='text-lime-400'>URL shortener</span> you'll ever need</h2>
+        <h2 className='text-5xl font-extrabold mb-4'>The only <span className='text-lime-400'>URL shortener</span> you will ever need</h2>
         <p className='text-lg text-slate-400 mb-8'>
           Create short,memorable links in seconds. Sign up to manage your links,
           track clicks and see your analytics

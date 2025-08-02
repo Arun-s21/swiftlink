@@ -29,8 +29,8 @@ export default function SignUpPage(){
 
      }
 
-     catch(error){
-        console.error('Error logging in:', error);
+     catch(_error){
+        // console.error('Error logging in:', error);
 
      }
      finally{
@@ -70,7 +70,7 @@ export default function SignUpPage(){
             
             <div>
         <p className='text-gray-400'>
-          Don't have an account?{' '}
+          Do not have an account?{' '}
           <Link className="text-lime-400 hover:text-lime-600 underline" href="/sign-up">
             Sign up
           </Link>
