@@ -27,7 +27,7 @@ export async function GET(){        //GET only receives the request like request
 
     }
 
-    catch(error: any){
+    catch(_error){
         return NextResponse.json({
             success:false,message:'Error occurred while signing out'
         },
