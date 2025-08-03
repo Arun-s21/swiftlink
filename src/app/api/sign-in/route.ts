@@ -32,7 +32,7 @@ export async function POST(request: Request) {
     }
 
    
-    const tokenPayload = {
+    const tokenPayload = {  // we are passing id here in payload so that we can use it to link the User's id to the Link's userId and get all the links associated with a specific user
       id: user.id,
       email: user.email,
     };
@@ -50,7 +50,7 @@ export async function POST(request: Request) {
 // setting cookies in the headers
     response.headers.set(
       'Set-Cookie',
-      `token=${token}; HttpOnly; Path=/; Max-Age=86400`
+      `token=${token}; HttpOnly; Path=/; Max-Age=86400`       // path / means the cookie will be sent with every path request on the page 
     );
 
     return response;

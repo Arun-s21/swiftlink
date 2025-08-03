@@ -15,7 +15,6 @@ type LinkType ={
 export default function Dashboard(){
     const [links,setLinks] = useState<LinkType[]>([]);
     const[isLoading,setIsLoading] = useState(true);
-
     useEffect(()=>{
 
         const fetchLinks=async()=>{     //we didnot write async(event:React.FormEvent(HTMLFormEvent)) here because it is not a event handler i.e it isnt called by clicking a button from the react component button
@@ -26,7 +25,7 @@ export default function Dashboard(){
                 const response = await axios.get('/api/get-links');
 
                 setLinks(response.data.links);
-
+                
             }
             catch(error){
                 console.error('Error fetching links:',error);
@@ -57,7 +56,7 @@ export default function Dashboard(){
     <div className="container mx-auto p-4 md:p-8 text-white">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-4xl font-bold text-lime-400">Your Links</h1>
-        <Link href="/" className="bg-yellow-400 text-slate-900 font-semibold px-4 py-2 rounded-md hover:bg-yellow-500 transition-colors">
+        <Link href="/" className="bg-blue-950 text-white-900 font-semibold px-4 py-2 rounded-md hover:bg-lime-400 transition-colors">
           Shorten New Link
         </Link>
       </div>
