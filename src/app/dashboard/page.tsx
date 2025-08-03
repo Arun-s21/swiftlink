@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from "react";
 import axios from 'axios';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 type LinkType ={
@@ -12,9 +13,29 @@ type LinkType ={
 };
 
 
+
 export default function Dashboard(){
+  const router = useRouter();
     const [links,setLinks] = useState<LinkType[]>([]);
     const[isLoading,setIsLoading] = useState(true);
+
+
+    const signOut=async()=>{      //we dont use event parameter here because we dont need it to save page from refreshing simple click of the button signs user out here
+      try{
+        await axios.get('/api/sign-out');
+        router.replace('/');
+        alert('Sign out successful \nRedirecting you to the Homepage...');
+      }
+      catch(error){
+        console.error('Error occurred while signing out:',error);
+        alert('Unexpected error occurred while signing out. Please try again.');
+      }
+
+    };
+
+
+
+
     useEffect(()=>{
 
         const fetchLinks=async()=>{     //we didnot write async(event:React.FormEvent(HTMLFormEvent)) here because it is not a event handler i.e it isnt called by clicking a button from the react component button
@@ -56,9 +77,18 @@ export default function Dashboard(){
     <div className="container mx-auto p-4 md:p-8 text-white">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-4xl font-bold text-lime-400">Your Links</h1>
+        <div className="flex  items-center space-x-4">
         <Link href="/" className="bg-blue-950 text-white-900 font-semibold px-4 py-2 rounded-md hover:bg-lime-400 transition-colors">
           Shorten New Link
         </Link>
+        <button
+            onClick={signOut}
+            className="bg-blue-950 text-white font-semibold px-4 py-2 rounded-md hover:bg-red-600 transition-colors"
+          >
+            Sign Out
+          </button>
+          </div>
+
       </div>
 
       {links.length > 0 ? (

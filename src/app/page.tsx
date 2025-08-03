@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 
@@ -10,11 +10,32 @@ export default function HomePage(){
   const [originalUrl,setOriginalUrl] = useState('');
   const [shortCode,setShortCode] = useState('');
   const [isSubmitting,setIsSubmitting]=useState(false);
+  const[isLoggedIn,setIsLoggedIn] = useState(false);
+
+
+  useEffect(()=>{
+     const checkLogInStatus = async()=>{
+      try{
+        await axios.get('/api/get-links');
+        setIsLoggedIn(true);
+      }
+      catch(_error){
+        setIsLoggedIn(false);
+      }
+     }
+    
+     checkLogInStatus();
+
+
+  },[]);
+
+
+
 
 
   const handleLinkShortening = async (event:React.FormEvent<HTMLFormElement>)=>{
 
-    event.preventDefault();
+    event.preventDefault();   //event here prevents the page from reloading when the button is pressed
     setIsSubmitting(true);
     setShortCode('');
     
@@ -49,8 +70,14 @@ export default function HomePage(){
         
         <h1 className='text-lime-400 text-4xl font-bold'>SwiftLink</h1>
         <div>
-          {/* <Link href='/sign-in' className='text-slate-400 hover:text-lime-400 mr-4 transition-colors'>Sign In</Link> */}
-          <Link href='/sign-up' className=' font-bold text-slate-400 hover:text-lime-400 mr-4 transition-colors'>Sign Up</Link>
+          {isLoggedIn ? (
+            <Link href="/dashboard" className="bg-lime-400 text-slate-900 font-semibold px-4 py-2 rounded-md hover:bg-lime-500 transition-colors">
+              Go to Dashboard
+            </Link>
+          
+          
+          ):(
+            <Link href='/sign-up' className=' font-bold text-slate-400 hover:text-lime-400 mr-4 transition-colors'>Sign Up</Link>)}
         </div>
       </nav>
 
