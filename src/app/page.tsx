@@ -90,7 +90,7 @@ export default function HomePage(){
           track clicks and see your analytics
         </p>
 
-        <form onSubmit={handleLinkShortening} className='w-full max-w-xl bg-slate-800 border border-slate-700 rounded-lg flex items-center space-x-2 bg-transparent'>
+        <form onSubmit={handleLinkShortening} className='w-full max-w-xl bg-slate-800 border border-slate-700 rounded-lg flex items-center space-x-2'>
         <input className='flex-grow p-3 bg-transparent border-none rounded-md text-gray-200 placeholder-gray-400 px-5' type='url' placeholder='https://your-long-url.com' value={originalUrl} onChange={(e)=>setOriginalUrl(e.target.value) } required />
         <button className='bg-lime-400 text-slate-900 font-bold px-6 py-3 rounded-md hover:bg-lime-600 disabled-bg-gray-800' type='submit' disabled={isSubmitting}>{isSubmitting?'Breathe in...Breathe out':'Shorten'}</button>
 
