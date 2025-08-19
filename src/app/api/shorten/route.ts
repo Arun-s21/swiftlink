@@ -45,7 +45,7 @@ export async function POST(request:NextRequest){
             data:{
             originalUrl,
             shortCode,
-            ...(userId && {userId:userId}),
+            ...(userId && {userId:userId}),                         //if userId is present then set the userId to userId, this is for signed-in users
             },
 
         });
